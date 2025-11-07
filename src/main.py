@@ -33,8 +33,8 @@ def parser_csv_report():
     # выводим отчет в консоль
     try:
         with open("average-rating.csv", encoding="utf-8") as f:
-            report = csv.reader(f)
-            print(tabulate(report, headers=["brand", "rating"], tablefmt="pretty"))
+            report = list(csv.reader(f))
+            print(tabulate(report, headers=["brand", "rating"], tablefmt="pretty",showindex=range(1, len(report)+1)))
     except FileNotFoundError:
         print("File 'average-rating.csv' not find")
 
