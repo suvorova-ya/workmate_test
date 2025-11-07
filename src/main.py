@@ -19,7 +19,7 @@ def parser_csv_report():
                 for row in table:
                     report.setdefault(row['brand'], []).append(float(row['rating']))
         except FileNotFoundError:
-            print("File not find")
+            raise FileNotFoundError("File not find")
 
     report.update({brand: round(fmean(rating), 2) for brand, rating in report.items()})
     output_report = args.report if args.report.endswith('csv') else args.report + ".csv"
