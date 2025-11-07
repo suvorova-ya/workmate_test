@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "workmate-test"
+version = "0.1.0"
+description = ""
+authors = ["Yana <suvorova_ya@outlook.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pylint = "~=3.0"
+tabulate = "^0.9.0"
+pytest = "^8.4.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.pytest.ini_options]
+addopts = "-v"
+python_files = "test_*.py"
+testpaths = "tests"
