@@ -22,7 +22,7 @@ class TestParserCSVReport:
 
     def test_single_file_processing(self, tmp_path):
         """Обработка одного CSV файла с корректными данными"""
-        # Arrange
+        
         test_data = [
             {'name': 'iphone 15 pro', 'brand': 'apple', 'price': '999', 'rating': '4.9'},
             {'name': 'galaxy s23 ultra', 'brand': 'samsung', 'price': '1199', 'rating': '4.8'},
@@ -53,7 +53,7 @@ class TestParserCSVReport:
 
     def test_multiple_files_processing(self, tmp_path):
         """Обработка нескольких CSV файлов с агрегацией данных"""
-        # Arrange
+        
         data1 = [
             {'name': 'iphone 15 pro', 'brand': 'apple', 'price': '999', 'rating': '4.9'},
             {'name': 'galaxy s23 ultra', 'brand': 'samsung', 'price': '1199', 'rating': '4.8'},
@@ -76,11 +76,11 @@ class TestParserCSVReport:
 
         test_args = ['--files', str(temp_csv1), str(temp_csv2), '--report', str(report_file)]
 
-        # Act
+        
         with patch('sys.argv', ['main'] + test_args):
             parser_csv_report()
 
-        # Assert
+        
         assert report_file.exists()
 
         with open(report_file, encoding='utf-8') as f:
